@@ -1,0 +1,627 @@
+  .wrong_answer_shake {
+  animation: shake .25s ease-in-out;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-10px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+  html, body {
+      position: fixed;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      /*font-family: Helvetica, sans-serif;*/
+      font-family: abel;
+      background-color: #e6e6e6;
+      margin: 0;
+      padding: 0;
+    }
+
+  #canvas #windiv { display: none; }
+  
+  #canvas .banner {
+    width: 370px;
+    font-size: 50px;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    top: -60px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.55);
+    left: -15px;
+    z-index: 2; 
+  }
+
+  #canvas .innerSquare {
+    width: 110px;
+    height: 110px;
+    float: left; 
+  }
+
+  #canvas .innerSquare.imageSquare {
+    font-size: 24px;
+    text-align: center;
+    border: 1px outset  black;
+  }
+
+  #canvas .innerSquare.imageSquare:hover { background-color: lightgray; }
+
+  #canvas .innerSquare.clickable:hover {
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
+  }
+
+  #canvas .innerSquare.blank { border: 1px inset black; }
+
+  #canvas {
+    width: 336px;
+    height: 335px;
+    border: 1px solid gray;
+    background-color: black; 
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  #preview{
+    width: 336px;
+    height: 335px;
+    border: 1px solid gray;
+    background-color: black; 
+    margin: auto;
+    position: relative;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  #heading {
+    background-color: #31a3cf;
+    justify-content: center;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    top: 0;
+    left: 0;
+    height: 15%;
+    width: 100%;
+    position: relative;
+  }
+
+  #heading img {
+      max-height: 80%;
+      width: 20%;
+      margin: 1% auto;
+    }
+
+  #heading_text {
+    background-color: white;
+    text-align: center;
+    display: block;
+    font-weight: normal;
+    position: relative;
+  }
+
+  #heading_text h3 {
+    font-size: 30px;
+    color: #636363;
+    margin: 0 0 10px 0;
+  }
+
+  .button {
+    font-size: 25px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    background-color: #31a3cf;
+    border-radius: 15px;
+    color: white;
+    border-radius: 10px;
+    height: 35px;
+    border-color: #31a3cf;
+    display: block;
+    margin: auto;
+  }
+
+  #hunt1 {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    max-width: 80%;
+  }
+
+   #hunt2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    max-width: 80%;
+  }
+
+  #hunt3 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    max-width: 80%;
+  }
+
+  #buttons {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    position: relative;
+  }
+
+  .new_canvas {
+      margin-top: 5%;
+  }
+
+  .h2_preview {
+      margin-top: 5%;
+  }
+
+  #canvas_heading h3{
+    margin: 10px auto 10px auto;
+  }
+
+  #h2_canvas_heading h3{
+      margin: 10px auto 10px auto;
+  }
+
+  .hint_image {
+    max-width: 50px;
+    max-height: 50px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .hint_bubble {
+    font-size: 30px;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    justify-content: center;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    bottom: 20%;
+    margin-left: 25%;
+    overflow: hidden;
+  }
+
+  .hint_bubble h6 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-weight: bolder;
+  }  
+
+.hint_bubble:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -15px;
+    right: auto;
+    top: auto;
+    bottom: -40px;
+    border: 32px solid white;
+    border-color: transparent transparent transparent transparent;
+  }
+
+.hint_bubble:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0px;
+    right: auto;
+    top: auto;
+    bottom: -20px;
+    border: 22px solid;
+    border-color: transparent transparent transparent white;
+  }
+
+  input {
+      width: 40%;
+      height: 40px;
+      margin-bottom: 30px;
+      font-size: 35px;
+      border-radius: 20px;
+      text-align: center;
+      border-color: black;
+    }
+
+  #hint_div {
+    margin-top: 30px;  
+    background-color: #31a3cf;
+    height: 15%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+  .grid-image {
+    float: right;
+    top: 0;
+    right: 0;
+    height: 50% !important;
+    width: 100%;
+  }
+
+  .grid-image img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  #q5 h1 {
+      font-size: 30px;
+  }
+
+  #q5 img {
+      height: 30%;
+  }
+
+  #help_button {
+    margin-bottom: 2%;
+  }
+
+  /*iphone 5*/
+  @media only screen and (max-device-width: 480px) {
+      #heading img {
+        text-align: center;
+        margin: 10px auto;
+        height: 80px;
+        width: 60%;
+      }
+
+      h1 {
+        font-size: 8vw;
+      }
+
+      h2 {
+        font-size: 6vw;
+      }
+
+      h3 {
+        font-size: 5vw;
+      }
+
+      h6 {
+        font-size: 6vw;
+      }
+
+      input {
+        width: 60%;
+        height: 30px;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .hint_bubble {
+        bottom: 25%;
+        width: 60%;
+      }
+
+      #canvas {
+      transform:scale(0.5);
+      margin-top: -20%;
+      }
+
+      #preview {
+        transform:scale(0.5);
+        margin: -50% auto 0 auto;
+        text-align: center;
+        position: relative;
+      }
+
+      #canvas .banner {
+        transform: scale(0.8);
+      }
+
+      #h2q5 #hint_div {
+          display: none;
+      }
+
+      #canvas_buttons {
+      margin-top: -20%;
+    }
+
+    #heading_text h3 {
+      font-size: 25px;
+      color: #636363;
+      margin: 0;
+    }
+
+    #q1 #hint_div {
+      display: none;
+    }
+
+    #q5 img {
+        height: 15%;
+    }
+
+    #q5 h1 {
+      font-size: 6vw;
+      margin: 10px auto;
+      width: 80%;
+    }
+  }
+
+
+  /*iphone 6*/
+
+  @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+
+  /*@media screen and (device-aspect-ratio: 375/667){*/
+
+    html, body {
+      position:fixed;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+    }
+
+    #heading {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10%;
+      position: relative;
+    }
+
+    #heading img {
+      text-align: center;
+      margin: 10px auto;
+      height: 50px;
+      width: 187px;
+    }
+
+    #canvas {
+      transform:scale(0.7);
+      margin-top: -12%;
+    }
+
+    #preview {
+      transform:scale(0.7);
+      margin: -33% auto 0 auto;
+      text-align: center;
+      position: relative;
+    }
+
+    #canvas .banner {
+      transform: scale(0.8);
+    }
+
+    #canvas_buttons {
+      margin-top: -20%;
+    }
+
+    .button {
+      width: 60%;
+      border-radius: 20px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+    }
+    
+    h1 {
+      font-size: 30px;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin-top: 10px;
+      position: relative;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin-top: 30px;
+      position: relative;
+    }
+
+    input {
+      width: 80%;
+      height: 10%;
+      font-size: 30px;
+      border-radius: 20px;
+      position: relative;
+      margin-bottom: 0;
+    }
+
+    #hint_div {
+    margin-top: 30px;  
+    background-color: #31a3cf;
+    height: 15%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+
+    .hint_image {
+      max-width: 75%;
+      max-height: 75%;
+      position: absolute;
+      left: 2%;
+      bottom: 10%;
+    }
+
+    .hint_bubble {
+      position: absolute;
+      width: 70%;
+      height: 60%;
+      justify-content: center;
+      background-color: white;
+      border-radius: 10px;
+      color: black;
+      text-align: center;
+      bottom: 20%;
+      margin-left: 25%;
+      overflow: hidden; 
+      /*margin-top: 50%;*/
+    }
+
+  .hint_bubble h6 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-size: 5vw;
+    font-weight: bolder;
+  }  
+
+  .hint_bubble:before {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: -15px;
+      right: auto;
+      top: auto;
+      bottom: -40px;
+      border: 32px solid white;
+      border-color: transparent transparent transparent transparent;
+    }
+
+  .hint_bubble:after {
+      content: ' ';
+      position: absolute;
+      width: 0;
+      height: 0;
+      left: 0px;
+      right: auto;
+      top: auto;
+      bottom: -20px;
+      /*border: 52px solid;*/
+      border-color: transparent transparent transparent white;
+    }
+
+  #hunt1 {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: flex;
+  }
+
+  #hunt2 {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    max-width: 90%;
+  }
+
+  #hunt3 {
+    text-align: center;
+    margin: auto;
+    position: relative;
+    max-width: 90%;
+  }
+
+  #h2q5 #hint_div {
+      display: none;
+  }
+
+  #canvas_heading {
+    width: 90%;
+    margin: auto;
+  }
+
+  #h2_canvas_heading h6 {
+    font-size: 70px;
+  }
+
+  #q4 #hint_div {
+    margin-top: 22%;
+  }
+
+  #q5 #hint_div .hint_image {
+      height: 100%;
+  }
+
+  #q5 img {
+      height: 15%;
+  }
+
+  #q5 input {
+    height: 40px;
+  }
+
+  #q5 h1 {
+    font-size: 25px;
+  }
+
+  #h2_help_button {
+    margin-top: -15%;
+  }
+
+  #h2_give_up_button {
+    margin-top: -10%;
+  }
+
+  #h2_finish_hunt_button {
+    margin-top: -10%;
+  }
+
+  .grid-image {
+    float: right;
+    top: 0;
+    right: 0;
+    height: 50% !important;
+  }
+
+}
