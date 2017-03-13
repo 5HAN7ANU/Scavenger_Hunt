@@ -94,6 +94,9 @@ app.controller('welcome_Controller', ['$scope', function ($scope) {
                     $('#h2_help_button').hide();
                     $('#h2_give_up_button').hide();
                     $('#h2_finish_hunt_button').show();
+                    if($('#preview').is(':visible')){
+                        $('#preview').hide();
+                    }
                     return $('#windiv').show('slow');
                 } else {
                     _ref = this.places;
@@ -197,6 +200,7 @@ app.controller('welcome_Controller', ['$scope', function ($scope) {
                 $('#hunt3').hide();
                 $('#go_to_clue2_button').hide();
                 imgs = ['Users/Shantanu/Desktop/Source/Kinetic/Scavenger_Hunt/images/Hunt1Picture.jpg'];
+                // imgs = ['hunt/images/Hunt1Picture.jpg'];
                 puzzle = new Puzzle(imgs);
             }
 
@@ -208,7 +212,6 @@ app.controller('welcome_Controller', ['$scope', function ($scope) {
                 $('#hunt1').hide();
                 $('#hunt2').show();
                 $('#hunt3').hide();
-                // new_canvas();
                 // imgs = ['hunt/images/Hunt2Picture.jpg'];
                 imgs = ['Users/Shantanu/Desktop/Source/Kinetic/Scavenger_Hunt/images/Hunt2Picture.jpg'];
                 puzzle = new Puzzle(imgs);
@@ -229,6 +232,7 @@ app.controller('welcome_Controller', ['$scope', function ($scope) {
                     $('#hunt2').hide();
                     $('#hunt3').hide();
                     imgs = ['Users/Shantanu/Desktop/Source/Kinetic/Scavenger_Hunt/images/Hunt1Picture.jpg'];
+                    // imgs = ['hunt/images/Hunt1Picture.jpg'];
                     puzzle = new Puzzle(imgs);
                 }
                 else if (value == 2) {
@@ -350,7 +354,7 @@ app.controller('hunt1_Controller', ['$scope', '$route', function ($scope, $route
     };
 
     $scope.go_to_clue5 = function () {
-        if ($scope.q4_answer == 'zen' || $scope.q4_answer == 'Zen') {
+        if ($scope.q4_answer == 'cyan' || $scope.q4_answer == 'Cyan') {
             $('#q4').hide();
             $('#q5').show();
             $('#q5_clue').hide();
@@ -477,7 +481,7 @@ app.controller('hunt2_Controller', ['$scope', function ($scope) {
     $scope.help = function () {
         $('#h2_canvas_heading').hide();
         $('#h2_help_button').hide();
-        $('#h2_give_up_button').show();
+        // $('#h2_give_up_button').show();
         $('.h2_preview').show();
     }
 

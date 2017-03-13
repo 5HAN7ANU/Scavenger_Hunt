@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.1.0.js" integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.js"></script>
+    <!--<link rel="stylesheet" href="hunt/styles.css">-->
     <link rel="stylesheet" href="Users/Shantanu/Desktop/Source/Kinetic/Scavenger_Hunt/styles.css">
     <!--<script src="hunt/script.js"></script>-->
     <script src="Users/Shantanu/Desktop/Source/Kinetic/Scavenger_Hunt/script.js"></script>
@@ -29,11 +30,12 @@
     </div>
     <div id="choose_hunt">
         <h1>Welcome to Kinetic's <br /> Open House</h1>
-        <h2>Choose one of the options below to start your adventure</h2>
-        <button class="button" ng-click="hunt1()">HUNT 1</button>
-        <button class="button" ng-click="hunt2()">HUNT 2</button>
-        <button class="button" ng-click="hunt3()">HUNT 3</button>
-        <button class="button" ng-click="hunt_random()">Surprise Me!</button>
+        <hr>
+        <h2>Choose one of the options below <br /> to start your adventure</h2>
+        <button class="button home_button" ng-click="hunt1()">HUNT 1</button>
+        <button class="button home_button" ng-click="hunt2()">HUNT 2</button>
+        <button class="button home_button" ng-click="hunt3()">HUNT 3</button>
+        <button class="button home_button" ng-click="hunt_random()">Surprise Me!</button>
         <div id="hint_div">
             <div class="grid-image">
                 <img ng-src="{{grid_image}}">
@@ -42,12 +44,12 @@
     </div>
     <div id="hunt1"  ng-controller="hunt1_Controller">
         <div id="q1">
-            <div id="q1_start">
+            <div id="q1_start" class="congrats">
                 <h1>Lets start with a puzzle</h1>
             </div>
             <div id="q1_clue">
                 <div id="canvas_heading">
-                    <h3>Solve the puzzle to get to the next clue</h3>
+                    <h3>Solve the puzzle <br />to get to the next clue</h3>
                 </div>
                 <div id="canvas"></div>
                 <img ng-src="{{puzzle_image}}" id="preview">
@@ -64,7 +66,7 @@
             </div>
         </div>
         <div id="q2" >
-            <div id="q2_congrats">
+            <div id="q2_congrats" class="congrats">
                 <h1>Great! <br />Lets go to the next clue</h1>
             </div>
             <div id="q2_clue">
@@ -84,7 +86,7 @@
             </div>
         </div>
         <div id="q3">
-            <div id="q3_congrats">
+            <div id="q3_congrats" class="congrats">
                 <h1>Good Job! <br /> Lets move on...</h1>
             </div>
             <div id="q3_clue" style="display: none;">
@@ -104,11 +106,11 @@
             </div>
         </div>
         <div id="q4" >
-            <div id="q4_congrats">
+            <div id="q4_congrats" class="congrats">
                 <h1>You're doing great!</h1>
             </div>
             <div id="q4_clue">
-                <h1>Lets head upstairs to play a "little" soccer and find the code for our next clue</h1>
+                <h1>Find this clue by looking down at the floor that changes color</h1>
                 <h3>Enter the code below <br/> to reveal the next clue:</h3>
                 <input id="q4_input" ng-model="q4_answer">
                 <button class="button" id="q4_next_clue_button" ng-click="go_to_clue5()">Next Clue!</button>
@@ -124,7 +126,7 @@
             </div>
         </div>
         <div id="q5">
-            <div id="q5_congrats">
+            <div id="q5_congrats" class="congrats">
                 <h1>Excellent!</h1>
             </div>
             <div id="q5_clue">
@@ -157,7 +159,7 @@
 
     <div id="hunt2" ng-controller="hunt2_Controller">
         <div id="h2q1">
-            <div id="h2q1_start">
+            <div id="h2q1_start" class="congrats">
                 <h1>Lets Begin</h1>
             </div>
             <div id="h2q1_clue">
@@ -178,11 +180,11 @@
             </div>
         </div>
         <div id="h2q2">
-            <div id="h2q2_congrats">
+            <div id="h2q2_congrats" class="congrats">
                 <h1>Great! <br /> Lets go to the next clue</h1>
             </div>
             <div id="h2q2_clue">
-                <h1>While you're upstairs, you will find the code in one of 6 pockets</h1>
+                <h1>To find your next clue, look for a Pac Man ghost to light the way</h1>
                 <h3>Enter the code below to reveal the next clue:</h3>
                 <input id="h2q2_input" ng-model="h2q2_answer">
                 <button class="button" id="h2q2_next_clue_button" ng-click="go_to_h2_clue3()">Next Clue!</button>
@@ -199,12 +201,11 @@
             </div>
         </div>
         <div id="h2q3" >
-            <div id="h2q3_congrats">
+            <div id="h2q3_congrats" class="congrats">
                 <h1>You're doing great!</h1>
             </div>
             <div id="h2q3_clue">
-                <h1>To get your next clue, unscramble the last word in this sentence:</h1>
-                <h2>Look for a poster that lights up a popular <u><i>iveom</i></u></h2>
+                <h1>Look Back To The Future to get your next clue</h1>
                 <h3>Enter the code below to reveal the next clue:</h3>
                 <input id="h2q3_input" ng-model="h2q3_answer">
                 <button class="button" id="h2q3_next_clue_button" ng-click="go_to_h2_clue4()">Next Clue!</button>
@@ -220,7 +221,7 @@
                 </div>
             </div>
         </div>
-        <div id="h2q4">
+        <div id="h2q4" class="congrats">
             <div id="h2q4_congrats">
                 <h1>Excellent! <br /> You're so close...</h1>
             </div>
@@ -242,7 +243,7 @@
             </div>
         </div>
         <div id="h2q5">
-            <div id="h2q5_congrats">
+            <div id="h2q5_congrats" class="congrats">
                 <h1>The last leg!</h1>
             </div>
             <div id="h2q5_clue">
@@ -275,7 +276,7 @@
 
     <div id="hunt3" ng-controller="hunt3_Controller">
         <div id="h3q1">
-            <div id="h3q1_start">
+            <div id="h3q1_start" class="congrats">
                 <h1>Here We Go!</h1>
             </div>
             <div id="h3q1_clue">
@@ -297,7 +298,7 @@
         </div>
 
         <div id="h3q2">
-            <div id="h3q2_congrats">
+            <div id="h3q2_congrats" class="congrats">
                 <h1>Sweet! <br /> Lets move on to the next one</h1>
             </div>
             <div id="h3q2_clue">
@@ -320,7 +321,7 @@
         </div>
 
         <div id="h3q3">
-            <div id="h3q3_congrats">
+            <div id="h3q3_congrats" class="congrats">
                 <h1>Nice! <br /> You're good at this</h1>
             </div>
             <div id="h3q3_clue">
@@ -343,7 +344,7 @@
         </div>
 
         <div id="h3q4">
-            <div id="h3q4_congrats">
+            <div id="h3q4_congrats" class="congrats">
                 <h1>Right on!</h1>
             </div>
             <div id="h3q4_clue">
@@ -364,7 +365,7 @@
             </div>
         </div>
 
-        <div id="h3q5">
+        <div id="h3q5" class="congrats">
             <div id="h3q5_congrats">
                 <h1>Impressive! <br /> You're almost there</h1>
             </div>
